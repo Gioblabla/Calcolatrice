@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title> Nuova calcolatrice </title>
+	</head>
+	<body>
+		<script>
+			var valore;
+			var risultato;
+			var operatore, valoreOperatore;
+			function funzioneBottone(input){
+				if ((input!='+')&&(input!='-')&&(input!='*')&&(input!='/')){
+					valore+=input;
+					document.getElementById("calcolatrice").value=valore;
+					if (valoreOperatore==1){
+						switch (operatore){
+							case'+':
+								risultato= Number(risultato) +  Number(input);
+								document.getElementById("calcolatrice").value=risultato;
+								operatore=0;
+								valore=0;
+								break;
+							case'-':
+								risultato= Number(risultato) - Number(input);
+								document.getElementById("calcolatrice").value=risultato;
+								operatore=0;
+								valore=0;
+								break;
+							case'*':
+								risultato= Number(input) * Number(input);
+								document.getElementById("calcolatrice").value=risultato;
+								operatore=0;
+								valore=0;
+								break;
+							case'/':
+								risultato= Number(risultato) / Number(input);
+								document.getElementById("calcolatrice").value=risultato;
+								operatore=0;
+								valore=0;
+								break;	
+						}
+					}
+				}
+				else{
+					operatore=input;
+					valoreOperatore=1;
+				}
+			}
+		</script>
+		<textarea id="calcolatrice" rows= "3" cols="30"> </textarea>
+        <br>
+        <button onclick= "funzioneBottone ('7')">7</button> 
+        <button onclick= "funzioneBottone ('8')">8</button>
+        <button onclick= "funzioneBottone ('9')">9</button>
+        <button onclick= "funzioneBottone ('/')">/</button>
+        <br>
+        <button onclick= "funzioneBottone ('4')">4</button>
+        <button onclick= "funzioneBottone ('5')">5</button>
+        <button onclick= "funzioneBottone ('6')">6</button>
+        <button onclick= "funzioneBottone ('*')">*</button>
+        <br>                                                                                
+        <button onclick= "funzioneBottone ('1')">1</button>
+        <button onclick= "funzioneBottone ('2')">2</button>
+        <button onclick= "funzioneBottone ('3')">3</button>
+        <button onclick= "funzioneBottone ('-')">-</button>
+        <br>
+        <button onclick= "funzioneBottone ('=')">=</button>
+        <button style="width: 47px; height: 23px;" onclick= "funzioneBottone (0)">0</button>
+        <button onclick= "funzioneBottone ('+')">+</button>
+        <br>
+	</body>
+</html>
